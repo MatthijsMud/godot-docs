@@ -213,6 +213,8 @@ Properties
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`                             | :ref:`debug/gdscript/warnings/integer_division<class_ProjectSettings_property_debug/gdscript/warnings/integer_division>`                                                                                   | ``1``                                                                                            |
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
+   | :ref:`int<class_int>`                             | :ref:`debug/gdscript/warnings/missing_tool<class_ProjectSettings_property_debug/gdscript/warnings/missing_tool>`                                                                                           | ``1``                                                                                            |
+   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`                             | :ref:`debug/gdscript/warnings/narrowing_conversion<class_ProjectSettings_property_debug/gdscript/warnings/narrowing_conversion>`                                                                           | ``1``                                                                                            |
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`                             | :ref:`debug/gdscript/warnings/native_method_override<class_ProjectSettings_property_debug/gdscript/warnings/native_method_override>`                                                                       | ``2``                                                                                            |
@@ -400,8 +402,6 @@ Properties
    | :ref:`bool<class_bool>`                           | :ref:`display/window/dpi/allow_hidpi<class_ProjectSettings_property_display/window/dpi/allow_hidpi>`                                                                                                       | ``true``                                                                                         |
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                           | :ref:`display/window/energy_saving/keep_screen_on<class_ProjectSettings_property_display/window/energy_saving/keep_screen_on>`                                                                             | ``true``                                                                                         |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`                           | :ref:`display/window/energy_saving/keep_screen_on.editor_hint<class_ProjectSettings_property_display/window/energy_saving/keep_screen_on.editor_hint>`                                                     | ``false``                                                                                        |
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`                             | :ref:`display/window/handheld/orientation<class_ProjectSettings_property_display/window/handheld/orientation>`                                                                                             | ``0``                                                                                            |
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
@@ -704,6 +704,8 @@ Properties
    | :ref:`Dictionary<class_Dictionary>`               | :ref:`input/ui_text_toggle_insert_mode<class_ProjectSettings_property_input/ui_text_toggle_insert_mode>`                                                                                                   |                                                                                                  |
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
    | :ref:`Dictionary<class_Dictionary>`               | :ref:`input/ui_undo<class_ProjectSettings_property_input/ui_undo>`                                                                                                                                         |                                                                                                  |
+   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
+   | :ref:`Dictionary<class_Dictionary>`               | :ref:`input/ui_unicode_start<class_ProjectSettings_property_input/ui_unicode_start>`                                                                                                                       |                                                                                                  |
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
    | :ref:`Dictionary<class_Dictionary>`               | :ref:`input/ui_up<class_ProjectSettings_property_input/ui_up>`                                                                                                                                             |                                                                                                  |
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
@@ -1283,6 +1285,8 @@ Properties
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`                             | :ref:`physics/common/physics_ticks_per_second<class_ProjectSettings_property_physics/common/physics_ticks_per_second>`                                                                                     | ``60``                                                                                           |
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
+   | :ref:`int<class_int>`                             | :ref:`rendering/2d/batching/item_buffer_size<class_ProjectSettings_property_rendering/2d/batching/item_buffer_size>`                                                                                       | ``16384``                                                                                        |
+   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`                             | :ref:`rendering/2d/sdf/oversize<class_ProjectSettings_property_rendering/2d/sdf/oversize>`                                                                                                                 | ``1``                                                                                            |
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`                             | :ref:`rendering/2d/sdf/scale<class_ProjectSettings_property_rendering/2d/sdf/scale>`                                                                                                                       | ``1``                                                                                            |
@@ -1537,6 +1541,8 @@ Properties
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                           | :ref:`rendering/rendering_device/fallback_to_d3d12<class_ProjectSettings_property_rendering/rendering_device/fallback_to_d3d12>`                                                                           | ``true``                                                                                         |
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                           | :ref:`rendering/rendering_device/fallback_to_opengl3<class_ProjectSettings_property_rendering/rendering_device/fallback_to_opengl3>`                                                                       | ``true``                                                                                         |
+   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                           | :ref:`rendering/rendering_device/fallback_to_vulkan<class_ProjectSettings_property_rendering/rendering_device/fallback_to_vulkan>`                                                                         | ``true``                                                                                         |
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                           | :ref:`rendering/rendering_device/pipeline_cache/enable<class_ProjectSettings_property_rendering/rendering_device/pipeline_cache/enable>`                                                                   | ``true``                                                                                         |
@@ -1595,6 +1601,8 @@ Properties
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                           | :ref:`rendering/textures/lossless_compression/force_png<class_ProjectSettings_property_rendering/textures/lossless_compression/force_png>`                                                                 | ``false``                                                                                        |
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                           | :ref:`rendering/textures/vram_compression/cache_gpu_compressor<class_ProjectSettings_property_rendering/textures/vram_compression/cache_gpu_compressor>`                                                   | ``true``                                                                                         |
+   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                           | :ref:`rendering/textures/vram_compression/compress_with_gpu<class_ProjectSettings_property_rendering/textures/vram_compression/compress_with_gpu>`                                                         | ``true``                                                                                         |
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                           | :ref:`rendering/textures/vram_compression/import_etc2_astc<class_ProjectSettings_property_rendering/textures/vram_compression/import_etc2_astc>`                                                           | ``false``                                                                                        |
@@ -1622,6 +1630,10 @@ Properties
    | :ref:`bool<class_bool>`                           | :ref:`xr/openxr/enabled<class_ProjectSettings_property_xr/openxr/enabled>`                                                                                                                                 | ``false``                                                                                        |
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`                             | :ref:`xr/openxr/environment_blend_mode<class_ProjectSettings_property_xr/openxr/environment_blend_mode>`                                                                                                   | ``"0"``                                                                                          |
+   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
+   | :ref:`int<class_int>`                             | :ref:`xr/openxr/extensions/debug_message_types<class_ProjectSettings_property_xr/openxr/extensions/debug_message_types>`                                                                                   | ``"15"``                                                                                         |
+   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
+   | :ref:`int<class_int>`                             | :ref:`xr/openxr/extensions/debug_utils<class_ProjectSettings_property_xr/openxr/extensions/debug_utils>`                                                                                                   | ``"0"``                                                                                          |
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                           | :ref:`xr/openxr/extensions/eye_gaze_interaction<class_ProjectSettings_property_xr/openxr/extensions/eye_gaze_interaction>`                                                                                 | ``false``                                                                                        |
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
@@ -2818,6 +2830,18 @@ When set to ``warn`` or ``error``, produces a warning or an error respectively w
 
 ----
 
+.. _class_ProjectSettings_property_debug/gdscript/warnings/missing_tool:
+
+.. rst-class:: classref-property
+
+:ref:`int<class_int>` **debug/gdscript/warnings/missing_tool** = ``1`` :ref:`🔗<class_ProjectSettings_property_debug/gdscript/warnings/missing_tool>`
+
+When set to ``warn`` or ``error``, produces a warning or an error respectively when the base class script has the ``@tool`` annotation, but the current class script does not have it.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_ProjectSettings_property_debug/gdscript/warnings/narrowing_conversion:
 
 .. rst-class:: classref-property
@@ -3949,18 +3973,6 @@ If ``true``, allows HiDPI display on Windows, macOS, Android, iOS and Web. If ``
 :ref:`bool<class_bool>` **display/window/energy_saving/keep_screen_on** = ``true`` :ref:`🔗<class_ProjectSettings_property_display/window/energy_saving/keep_screen_on>`
 
 If ``true``, keeps the screen on (even in case of inactivity), so the screensaver does not take over. Works on desktop and mobile platforms.
-
-.. rst-class:: classref-item-separator
-
-----
-
-.. _class_ProjectSettings_property_display/window/energy_saving/keep_screen_on.editor_hint:
-
-.. rst-class:: classref-property
-
-:ref:`bool<class_bool>` **display/window/energy_saving/keep_screen_on.editor_hint** = ``false`` :ref:`🔗<class_ProjectSettings_property_display/window/energy_saving/keep_screen_on.editor_hint>`
-
-Editor-only override for :ref:`display/window/energy_saving/keep_screen_on<class_ProjectSettings_property_display/window/energy_saving/keep_screen_on>`. Does not affect running project.
 
 .. rst-class:: classref-item-separator
 
@@ -6025,6 +6037,20 @@ Default :ref:`InputEventAction<class_InputEventAction>` to toggle *insert mode* 
 :ref:`Dictionary<class_Dictionary>` **input/ui_undo** :ref:`🔗<class_ProjectSettings_property_input/ui_undo>`
 
 Default :ref:`InputEventAction<class_InputEventAction>` to undo the most recent action.
+
+\ **Note:** Default ``ui_*`` actions cannot be removed as they are necessary for the internal logic of several :ref:`Control<class_Control>`\ s. The events assigned to the action can however be modified.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_ProjectSettings_property_input/ui_unicode_start:
+
+.. rst-class:: classref-property
+
+:ref:`Dictionary<class_Dictionary>` **input/ui_unicode_start** :ref:`🔗<class_ProjectSettings_property_input/ui_unicode_start>`
+
+Default :ref:`InputEventAction<class_InputEventAction>` to start Unicode character hexadecimal code input in a text field.
 
 \ **Note:** Default ``ui_*`` actions cannot be removed as they are necessary for the internal logic of several :ref:`Control<class_Control>`\ s. The events assigned to the action can however be modified.
 
@@ -9618,8 +9644,6 @@ If ``true``, the renderer will interpolate the transforms of physics objects bet
 
 \ **Note:** This property is only read when the project starts. To toggle physics interpolation at runtime, set :ref:`SceneTree.physics_interpolation<class_SceneTree_property_physics_interpolation>` instead.
 
-\ **Note:** This feature is currently only implemented in the 2D renderer.
-
 .. rst-class:: classref-item-separator
 
 ----
@@ -9653,6 +9677,18 @@ The number of fixed iterations per second. This controls how often physics simul
 \ **Note:** This property is only read when the project starts. To change the physics FPS at runtime, set :ref:`Engine.physics_ticks_per_second<class_Engine_property_physics_ticks_per_second>` instead.
 
 \ **Note:** Only :ref:`physics/common/max_physics_steps_per_frame<class_ProjectSettings_property_physics/common/max_physics_steps_per_frame>` physics ticks may be simulated per rendered frame at most. If more physics ticks have to be simulated per rendered frame to keep up with rendering, the project will appear to slow down (even if ``delta`` is used consistently in physics calculations). Therefore, it is recommended to also increase :ref:`physics/common/max_physics_steps_per_frame<class_ProjectSettings_property_physics/common/max_physics_steps_per_frame>` if increasing :ref:`physics/common/physics_ticks_per_second<class_ProjectSettings_property_physics/common/physics_ticks_per_second>` significantly above its default value.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_ProjectSettings_property_rendering/2d/batching/item_buffer_size:
+
+.. rst-class:: classref-property
+
+:ref:`int<class_int>` **rendering/2d/batching/item_buffer_size** = ``16384`` :ref:`🔗<class_ProjectSettings_property_rendering/2d/batching/item_buffer_size>`
+
+Maximum number of canvas item commands that can be batched into a single draw call.
 
 .. rst-class:: classref-item-separator
 
@@ -10328,9 +10364,9 @@ If ``true``, the compatibility renderer will fall back to OpenGLES if desktop Op
 
 :ref:`bool<class_bool>` **rendering/gl_compatibility/fallback_to_native** = ``true`` :ref:`🔗<class_ProjectSettings_property_rendering/gl_compatibility/fallback_to_native>`
 
-If ``true``, the compatibility renderer will fall back to native OpenGL if ANGLE over Metal is not supported.
+If ``true``, the compatibility renderer will fall back to native OpenGL if ANGLE is not supported, or ANGLE dynamic libraries aren't found.
 
-\ **Note:** This setting is implemented only on macOS.
+\ **Note:** This setting is implemented on macOS and Windows.
 
 .. rst-class:: classref-item-separator
 
@@ -10950,9 +10986,9 @@ The minimum number of instances that must be present in a scene to enable cullin
 
 :ref:`float<class_float>` **rendering/limits/time/time_rollover_secs** = ``3600`` :ref:`🔗<class_ProjectSettings_property_rendering/limits/time/time_rollover_secs>`
 
-.. container:: contribute
+Maximum time (in seconds) before the ``TIME`` shader built-in variable rolls over. The ``TIME`` variable increments by ``delta`` each frame, and when it exceeds this value, it rolls over to ``0.0``. Since large floating-point values are less precise than small floating-point values, this should be set as low as possible to maximize the precision of the ``TIME`` built-in variable in shaders. This is especially important on mobile platforms where precision in shaders is significantly reduced. However, if this is set too low, shader animations may appear to restart from the beginning while the project is running.
 
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+On desktop platforms, values below ``4096`` are recommended, ideally below ``2048``. On mobile platforms, values below ``64`` are recommended, ideally below ``32``.
 
 .. rst-class:: classref-item-separator
 
@@ -11315,6 +11351,20 @@ Windows override for :ref:`rendering/rendering_device/driver<class_ProjectSettin
 If ``true``, the forward renderer will fall back to Direct3D 12 if Vulkan is not supported.
 
 \ **Note:** This setting is implemented only on Windows.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_ProjectSettings_property_rendering/rendering_device/fallback_to_opengl3:
+
+.. rst-class:: classref-property
+
+:ref:`bool<class_bool>` **rendering/rendering_device/fallback_to_opengl3** = ``true`` :ref:`🔗<class_ProjectSettings_property_rendering/rendering_device/fallback_to_opengl3>`
+
+If ``true``, the forward renderer will fall back to OpenGL 3 if both Direct3D 12, Metal and Vulkan are not supported.
+
+\ **Note:** This setting is implemented only on Windows, Android, macOS, iOS, and Linux/X11.
 
 .. rst-class:: classref-item-separator
 
@@ -11724,17 +11774,29 @@ If ``true``, the texture importer will import lossless textures using the PNG fo
 
 ----
 
+.. _class_ProjectSettings_property_rendering/textures/vram_compression/cache_gpu_compressor:
+
+.. rst-class:: classref-property
+
+:ref:`bool<class_bool>` **rendering/textures/vram_compression/cache_gpu_compressor** = ``true`` :ref:`🔗<class_ProjectSettings_property_rendering/textures/vram_compression/cache_gpu_compressor>`
+
+If ``true``, the GPU texture compressor will cache the local RenderingDevice and its resources (shaders and pipelines), allowing for faster subsequent imports at a memory cost.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_ProjectSettings_property_rendering/textures/vram_compression/compress_with_gpu:
 
 .. rst-class:: classref-property
 
 :ref:`bool<class_bool>` **rendering/textures/vram_compression/compress_with_gpu** = ``true`` :ref:`🔗<class_ProjectSettings_property_rendering/textures/vram_compression/compress_with_gpu>`
 
-If ``true``, the texture importer will utilize the GPU for compressing textures, which makes large textures import significantly faster.
+If ``true``, the texture importer will utilize the GPU for compressing textures, improving the import time of large images.
 
 \ **Note:** This setting requires either Vulkan or D3D12 available as a rendering backend.
 
-\ **Note:** Currently this only affects BC6H compression, which is used on Desktop and Console for HDR images.
+\ **Note:** Currently this only affects BC1 and BC6H compression, which are used on Desktop and Console for fully opaque and HDR images respectively.
 
 .. rst-class:: classref-item-separator
 
@@ -11802,7 +11864,11 @@ The default compression factor for lossless WebP. Decompression speed is mostly 
 
 :ref:`bool<class_bool>` **rendering/viewport/hdr_2d** = ``false`` :ref:`🔗<class_ProjectSettings_property_rendering/viewport/hdr_2d>`
 
-If ``true``, enables :ref:`Viewport.use_hdr_2d<class_Viewport_property_use_hdr_2d>` on the root viewport. This allows 2D rendering to take advantage of effects requiring high dynamic range (e.g. 2D glow).
+If ``true``, enables :ref:`Viewport.use_hdr_2d<class_Viewport_property_use_hdr_2d>` on the root viewport. 2D rendering will use an high dynamic range (HDR) format framebuffer matching the bit depth of the 3D framebuffer. When using the Forward+ renderer this will be an ``RGBA16`` framebuffer, while when using the Mobile renderer it will be an ``RGB10_A2`` framebuffer. Additionally, 2D rendering will take place in linear color space and will be converted to sRGB space immediately before blitting to the screen. Practically speaking, this means that the end result of the Viewport will not be clamped into the ``0-1`` range and can be used in 3D rendering without color space adjustments. This allows 2D rendering to take advantage of effects requiring high dynamic range (e.g. 2D glow) as well as substantially improves the appearance of effects requiring highly detailed gradients.
+
+\ **Note:** This setting will have no effect when using the GL Compatibility renderer as the GL Compatibility renderer always renders in low dynamic range for performance reasons.
+
+\ **Note:** This property is only read when the project starts. To toggle HDR 2D at runtime, set :ref:`Viewport.use_hdr_2d<class_Viewport_property_use_hdr_2d>` on the root :ref:`Viewport<class_Viewport>`.
 
 .. rst-class:: classref-item-separator
 
@@ -11914,6 +11980,30 @@ If ``true``, Godot will setup and initialize OpenXR on startup.
 :ref:`int<class_int>` **xr/openxr/environment_blend_mode** = ``"0"`` :ref:`🔗<class_ProjectSettings_property_xr/openxr/environment_blend_mode>`
 
 Specify how OpenXR should blend in the environment. This is specific to certain AR and passthrough devices where camera images are blended in by the XR compositor.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_ProjectSettings_property_xr/openxr/extensions/debug_message_types:
+
+.. rst-class:: classref-property
+
+:ref:`int<class_int>` **xr/openxr/extensions/debug_message_types** = ``"15"`` :ref:`🔗<class_ProjectSettings_property_xr/openxr/extensions/debug_message_types>`
+
+Specifies the message types for which we request debug messages. Requires :ref:`xr/openxr/extensions/debug_utils<class_ProjectSettings_property_xr/openxr/extensions/debug_utils>` to be set and the extension to be supported by the XR runtime.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_ProjectSettings_property_xr/openxr/extensions/debug_utils:
+
+.. rst-class:: classref-property
+
+:ref:`int<class_int>` **xr/openxr/extensions/debug_utils** = ``"0"`` :ref:`🔗<class_ProjectSettings_property_xr/openxr/extensions/debug_utils>`
+
+Enables debug utilities on XR runtimes that supports the debug utils extension. Sets the maximum severity being reported (0 = disabled, 1 = error, 2 = warning, 3 = info, 4 = verbose).
 
 .. rst-class:: classref-item-separator
 
@@ -12104,8 +12194,6 @@ Adds a custom property info to a property. The dictionary must contain:
 
 - optionally ``"hint"``: :ref:`int<class_int>` (see :ref:`PropertyHint<enum_@GlobalScope_PropertyHint>`) and ``"hint_string"``: :ref:`String<class_String>`\ 
 
-\ **Example:**\ 
-
 
 .. tabs::
 
@@ -12198,8 +12286,6 @@ Returns the order of a configuration value (influences when saved to the config 
 
 Returns the value of the setting identified by ``name``. If the setting doesn't exist and ``default_value`` is specified, the value of ``default_value`` is returned. Otherwise, ``null`` is returned.
 
-\ **Example:**\ 
-
 
 .. tabs::
 
@@ -12229,9 +12315,7 @@ Returns the value of the setting identified by ``name``. If the setting doesn't 
 
 Similar to :ref:`get_setting<class_ProjectSettings_method_get_setting>`, but applies feature tag overrides if any exists and is valid.
 
-\ **Example:**\ 
-
-If the following setting override exists "application/config/name.windows", and the following code is executed:
+\ **Example:**\ 	If the setting override ``"application/config/name.windows"`` exists, and the following code is executed on a *Windows* operating system, the overridden setting is printed instead:
 
 
 .. tabs::
@@ -12245,8 +12329,6 @@ If the following setting override exists "application/config/name.windows", and 
     GD.Print(ProjectSettings.GetSettingWithOverride("application/config/name"));
 
 
-
-Then the overridden setting will be returned instead if the project is running on the *Windows* operating system.
 
 .. rst-class:: classref-item-separator
 
@@ -12415,8 +12497,6 @@ Sets whether a setting requires restarting the editor to properly take effect.
 |void| **set_setting**\ (\ name\: :ref:`String<class_String>`, value\: :ref:`Variant<class_Variant>`\ ) :ref:`🔗<class_ProjectSettings_method_set_setting>`
 
 Sets the value of a setting.
-
-\ **Example:**\ 
 
 
 .. tabs::
