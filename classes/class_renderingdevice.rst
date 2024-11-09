@@ -103,6 +103,8 @@ Methods
    +------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | |void|                                                     | :ref:`draw_list_draw<class_RenderingDevice_method_draw_list_draw>`\ (\ draw_list\: :ref:`int<class_int>`, use_indices\: :ref:`bool<class_bool>`, instances\: :ref:`int<class_int>`, procedural_vertex_count\: :ref:`int<class_int>` = 0\ )                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
    +------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                                     | :ref:`draw_list_draw_indirect<class_RenderingDevice_method_draw_list_draw_indirect>`\ (\ draw_list\: :ref:`int<class_int>`, use_indices\: :ref:`bool<class_bool>`, buffer\: :ref:`RID<class_RID>`, offset\: :ref:`int<class_int>` = 0, draw_count\: :ref:`int<class_int>` = 1, stride\: :ref:`int<class_int>` = 0\ )                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+   +------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | |void|                                                     | :ref:`draw_list_enable_scissor<class_RenderingDevice_method_draw_list_enable_scissor>`\ (\ draw_list\: :ref:`int<class_int>`, rect\: :ref:`Rect2<class_Rect2>` = Rect2(0, 0, 0, 0)\ )                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
    +------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | |void|                                                     | :ref:`draw_list_end<class_RenderingDevice_method_draw_list_end>`\ (\ )                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
@@ -164,6 +166,8 @@ Methods
    | :ref:`int<class_int>`                                      | :ref:`get_driver_allocation_count<class_RenderingDevice_method_get_driver_allocation_count>`\ (\ ) |const|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
    +------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`                                      | :ref:`get_driver_allocs_by_object_type<class_RenderingDevice_method_get_driver_allocs_by_object_type>`\ (\ type\: :ref:`int<class_int>`\ ) |const|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+   +------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`String<class_String>`                                | :ref:`get_driver_and_device_memory_report<class_RenderingDevice_method_get_driver_and_device_memory_report>`\ (\ ) |const|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
    +------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`                                      | :ref:`get_driver_memory_by_object_type<class_RenderingDevice_method_get_driver_memory_by_object_type>`\ (\ type\: :ref:`int<class_int>`\ ) |const|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
    +------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -5166,6 +5170,18 @@ Submits ``draw_list`` for rendering on the GPU. This is the raster equivalent to
 
 ----
 
+.. _class_RenderingDevice_method_draw_list_draw_indirect:
+
+.. rst-class:: classref-method
+
+|void| **draw_list_draw_indirect**\ (\ draw_list\: :ref:`int<class_int>`, use_indices\: :ref:`bool<class_bool>`, buffer\: :ref:`RID<class_RID>`, offset\: :ref:`int<class_int>` = 0, draw_count\: :ref:`int<class_int>` = 1, stride\: :ref:`int<class_int>` = 0\ ) :ref:`🔗<class_RenderingDevice_method_draw_list_draw_indirect>`
+
+Submits ``draw_list`` for rendering on the GPU with the given parameters stored in the ``buffer`` at ``offset``. Parameters being integers: vertex count, instance count, first vertex, first instance. And when using indices: index count, instance count, first index, vertex offset, first instance. Buffer must have been created with :ref:`STORAGE_BUFFER_USAGE_DISPATCH_INDIRECT<class_RenderingDevice_constant_STORAGE_BUFFER_USAGE_DISPATCH_INDIRECT>` flag.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_RenderingDevice_method_draw_list_enable_scissor:
 
 .. rst-class:: classref-method
@@ -5452,7 +5468,7 @@ Returns the index of the last frame rendered that has rendering timestamps avail
 
 Returns how many allocations the GPU has performed for internal driver structures.
 
-This is only used by Vulkan in Debug builds and can return 0 when this information is not tracked or unknown.
+This is only used by Vulkan in debug builds and can return 0 when this information is not tracked or unknown.
 
 .. rst-class:: classref-item-separator
 
@@ -5468,7 +5484,7 @@ Same as :ref:`get_device_allocation_count<class_RenderingDevice_method_get_devic
 
 The type argument must be in range ``[0; get_tracked_object_type_count - 1]``. If :ref:`get_tracked_object_type_count<class_RenderingDevice_method_get_tracked_object_type_count>` is 0, then type argument is ignored and always returns 0.
 
-This is only used by Vulkan in Debug builds and can return 0 when this information is not tracked or unknown.
+This is only used by Vulkan in debug builds and can return 0 when this information is not tracked or unknown.
 
 .. rst-class:: classref-item-separator
 
@@ -5484,7 +5500,7 @@ Same as :ref:`get_device_total_memory<class_RenderingDevice_method_get_device_to
 
 The type argument must be in range ``[0; get_tracked_object_type_count - 1]``. If :ref:`get_tracked_object_type_count<class_RenderingDevice_method_get_tracked_object_type_count>` is 0, then type argument is ignored and always returns 0.
 
-This is only used by Vulkan in Debug builds and can return 0 when this information is not tracked or unknown.
+This is only used by Vulkan in debug builds and can return 0 when this information is not tracked or unknown.
 
 .. rst-class:: classref-item-separator
 
@@ -5522,7 +5538,7 @@ Returns the universally unique identifier for the pipeline cache. This is used t
 
 Returns how much bytes the GPU is using.
 
-This is only used by Vulkan in Debug builds and can return 0 when this information is not tracked or unknown.
+This is only used by Vulkan in debug builds and can return 0 when this information is not tracked or unknown.
 
 .. rst-class:: classref-item-separator
 
@@ -5548,7 +5564,7 @@ Returns the vendor of the video adapter (e.g. "NVIDIA Corporation"). Equivalent 
 
 Returns how many allocations the GPU driver has performed for internal driver structures.
 
-This is only used by Vulkan in Debug builds and can return 0 when this information is not tracked or unknown.
+This is only used by Vulkan in debug builds and can return 0 when this information is not tracked or unknown.
 
 .. rst-class:: classref-item-separator
 
@@ -5564,7 +5580,41 @@ Same as :ref:`get_driver_allocation_count<class_RenderingDevice_method_get_drive
 
 The type argument must be in range ``[0; get_tracked_object_type_count - 1]``. If :ref:`get_tracked_object_type_count<class_RenderingDevice_method_get_tracked_object_type_count>` is 0, then type argument is ignored and always returns 0.
 
-This is only used by Vulkan in Debug builds and can return 0 when this information is not tracked or unknown.
+This is only used by Vulkan in debug builds and can return 0 when this information is not tracked or unknown.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_RenderingDevice_method_get_driver_and_device_memory_report:
+
+.. rst-class:: classref-method
+
+:ref:`String<class_String>` **get_driver_and_device_memory_report**\ (\ ) |const| :ref:`🔗<class_RenderingDevice_method_get_driver_and_device_memory_report>`
+
+Returns string report in CSV format using the following methods:
+
+- :ref:`get_tracked_object_name<class_RenderingDevice_method_get_tracked_object_name>`\ 
+
+- :ref:`get_tracked_object_type_count<class_RenderingDevice_method_get_tracked_object_type_count>`\ 
+
+- :ref:`get_driver_total_memory<class_RenderingDevice_method_get_driver_total_memory>`\ 
+
+- :ref:`get_driver_allocation_count<class_RenderingDevice_method_get_driver_allocation_count>`\ 
+
+- :ref:`get_driver_memory_by_object_type<class_RenderingDevice_method_get_driver_memory_by_object_type>`\ 
+
+- :ref:`get_driver_allocs_by_object_type<class_RenderingDevice_method_get_driver_allocs_by_object_type>`\ 
+
+- :ref:`get_device_total_memory<class_RenderingDevice_method_get_device_total_memory>`\ 
+
+- :ref:`get_device_allocation_count<class_RenderingDevice_method_get_device_allocation_count>`\ 
+
+- :ref:`get_device_memory_by_object_type<class_RenderingDevice_method_get_device_memory_by_object_type>`\ 
+
+- :ref:`get_device_allocs_by_object_type<class_RenderingDevice_method_get_device_allocs_by_object_type>`\ 
+
+This is only used by Vulkan in debug builds. Godot must also be started with the ``--extra-gpu-memory-tracking`` :doc:`command line argument <../tutorials/editor/command_line_tutorial>`.
 
 .. rst-class:: classref-item-separator
 
@@ -5580,7 +5630,7 @@ Same as :ref:`get_driver_total_memory<class_RenderingDevice_method_get_driver_to
 
 The type argument must be in range ``[0; get_tracked_object_type_count - 1]``. If :ref:`get_tracked_object_type_count<class_RenderingDevice_method_get_tracked_object_type_count>` is 0, then type argument is ignored and always returns 0.
 
-This is only used by Vulkan in Debug builds and can return 0 when this information is not tracked or unknown.
+This is only used by Vulkan in debug builds and can return 0 when this information is not tracked or unknown.
 
 .. rst-class:: classref-item-separator
 
@@ -5606,7 +5656,7 @@ Returns the unique identifier of the driver ``resource`` for the specified ``rid
 
 Returns how much bytes the GPU driver is using for internal driver structures.
 
-This is only used by Vulkan in Debug builds and can return 0 when this information is not tracked or unknown.
+This is only used by Vulkan in debug builds and can return 0 when this information is not tracked or unknown.
 
 .. rst-class:: classref-item-separator
 
@@ -5668,7 +5718,7 @@ The return value is important because it gives meaning to the types passed to :r
 
 Thus if e.g. ``get_tracked_object_name(5)`` returns "COMMAND_POOL", then ``get_device_memory_by_object_type(5)`` returns the bytes used by the GPU for command pools.
 
-This is only used by Vulkan in Debug builds.
+This is only used by Vulkan in debug builds. Godot must also be started with the ``--extra-gpu-memory-tracking`` :doc:`command line argument <../tutorials/editor/command_line_tutorial>`.
 
 .. rst-class:: classref-item-separator
 
@@ -5682,7 +5732,7 @@ This is only used by Vulkan in Debug builds.
 
 Returns how many types of trackable objects are.
 
-This is only used by Vulkan in Debug builds.
+This is only used by Vulkan in debug builds. Godot must also be started with the ``--extra-gpu-memory-tracking`` :doc:`command line argument <../tutorials/editor/command_line_tutorial>`.
 
 .. rst-class:: classref-item-separator
 
@@ -6060,7 +6110,7 @@ Creates a shared texture using the specified ``view`` and the texture informatio
 
 :ref:`RID<class_RID>` **texture_create_shared_from_slice**\ (\ view\: :ref:`RDTextureView<class_RDTextureView>`, with_texture\: :ref:`RID<class_RID>`, layer\: :ref:`int<class_int>`, mipmap\: :ref:`int<class_int>`, mipmaps\: :ref:`int<class_int>` = 1, slice_type\: :ref:`TextureSliceType<enum_RenderingDevice_TextureSliceType>` = 0\ ) :ref:`🔗<class_RenderingDevice_method_texture_create_shared_from_slice>`
 
-Creates a shared texture using the specified ``view`` and the texture information from ``with_texture``'s ``layer`` and ``mipmap``. The number of included mipmaps from the original texture can be controlled using the ``mipmaps`` parameter. Only relevant for textures with multiple layers, such as 3D textures, texture arrays and cubemaps. For single-layer textures, use :ref:`texture_create_shared<class_RenderingDevice_method_texture_create_shared>`\ 
+Creates a shared texture using the specified ``view`` and the texture information from ``with_texture``'s ``layer`` and ``mipmap``. The number of included mipmaps from the original texture can be controlled using the ``mipmaps`` parameter. Only relevant for textures with multiple layers, such as 3D textures, texture arrays and cubemaps. For single-layer textures, use :ref:`texture_create_shared<class_RenderingDevice_method_texture_create_shared>`.
 
 For 2D textures (which only have one layer), ``layer`` must be ``0``.
 

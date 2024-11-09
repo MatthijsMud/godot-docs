@@ -398,6 +398,7 @@ Resources
     class_editorsettings
     class_editorsyntaxhighlighter
     class_environment
+    class_externaltexture
     class_fastnoiselite
     class_fbxdocument
     class_fbxstate
@@ -724,10 +725,12 @@ Other objects
     class_diraccess
     class_displayserver
     class_dtlsserver
+    class_editorcontextmenuplugin
     class_editordebuggerplugin
     class_editordebuggersession
     class_editorexportplatform
     class_editorexportplatformandroid
+    class_editorexportplatformextension
     class_editorexportplatformios
     class_editorexportplatformlinuxbsd
     class_editorexportplatformmacos
@@ -735,6 +738,7 @@ Other objects
     class_editorexportplatformweb
     class_editorexportplatformwindows
     class_editorexportplugin
+    class_editorexportpreset
     class_editorfeatureprofile
     class_editorfilesystemdirectory
     class_editorfilesystemimportformatsupportquery
@@ -771,6 +775,7 @@ Other objects
     class_gdextensionmanager
     class_geometry2d
     class_geometry3d
+    class_gltfobjectmodelproperty
     class_hashingcontext
     class_hmaccontext
     class_httpclient
@@ -782,6 +787,7 @@ Other objects
     class_ip
     class_javaclass
     class_javaclasswrapper
+    class_javaobject
     class_javascriptbridge
     class_javascriptobject
     class_jnisingleton
@@ -935,6 +941,7 @@ Other objects
     class_tiledata
     class_time
     class_tlsoptions
+    class_translationdomain
     class_translationserver
     class_treeitem
     class_trianglemesh
@@ -978,10 +985,12 @@ Editor-only
     :name: toc-class-ref-editors
 
     class_editorcommandpalette
+    class_editorcontextmenuplugin
     class_editordebuggerplugin
     class_editordebuggersession
     class_editorexportplatform
     class_editorexportplatformandroid
+    class_editorexportplatformextension
     class_editorexportplatformios
     class_editorexportplatformlinuxbsd
     class_editorexportplatformmacos
@@ -989,6 +998,7 @@ Editor-only
     class_editorexportplatformweb
     class_editorexportplatformwindows
     class_editorexportplugin
+    class_editorexportpreset
     class_editorfeatureprofile
     class_editorfiledialog
     class_editorfilesystem
